@@ -86,3 +86,28 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+
+
+// Tasks at hand
+
+
+// Work out the total number of months. Do this by working out the total number of enteries, as it appears to be in order with no misssing dates. 
+
+
+// Net total. Do this by accessing the second item inside the nested array, create a loop that will add the next number to the current calculation
+
+
+// Average of changes. Create a new array that holds the changes from month to month. 
+// Create a calculation that finds the differnce between two consective months, and store the value. 
+// Add all values togther and divid by total. To get average. 
+
+
+//Greatest increase in profit. Use a sort method to find highest number
+
+
+//Greatet decrease in losses. Use a sort method to find lowest number
+
+
+
