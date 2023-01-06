@@ -89,14 +89,31 @@ var finances = [
 
 
 
+//console.log(`${finances}`)
+//console.table(finances)
+console.log(finances[0][0]);
 
 // Tasks at hand
 
 
 // Work out the total number of months. Do this by working out the total number of enteries, as it appears to be in order with no misssing dates. 
+var financeLength = finances.length
+console.log(`Total Months:${financeLength}`)
 
 
 // Net total. Do this by accessing the second item inside the nested array, create a loop that will add the next number to the current calculation
+
+
+// for ( var i=0; i < finances.length; i++) {
+//     console.log(finances[i])
+// }
+
+
+// find the finances array
+// once found, find the second item for each item inside the nested array
+// collect/store this number
+// and sum it to the next number 
+// keep going until the end of the loop 
 
 
 // Average of changes. Create a new array that holds the changes from month to month. 
