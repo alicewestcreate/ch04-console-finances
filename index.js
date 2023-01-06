@@ -103,10 +103,17 @@ console.log(`Total Months:${financeLength}`)
 
 // Net total. Do this by accessing the second item inside the nested array, create a loop that will add the next number to the current calculation
 
+let sum = 0;
 
-// for ( var i=0; i < finances.length; i++) {
-//     console.log(finances[i])
-// }
+for ( var i=0; i < finances.length; i++) {
+    sum += finances[i][1];
+}
+console.log(`Total: ${sum}`)
+
+
+
+
+
 
 
 // find the finances array
