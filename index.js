@@ -1,14 +1,4 @@
 var finances = [
-
-// ['Jan-2010', 21],
-// ['Feb-2010', 13],
-// ['Mar-2010', 8],
-// ['Jan-2010', 5],
-// ['Feb-2010', 3],
-// ['Mar-2010', 2],
-// ['Mar-2010', 1],
-
-
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
 ['Mar-2010', 322013],
@@ -99,111 +89,122 @@ var finances = [
 
 
 
-//console.log(`${finances}`)
-//console.table(finances)
-console.log(finances[0][0]);
+// ---------------- CALCULATION 1 ------------------------
 
-// Tasks at hand
-
-
-// Work out the total number of months. Do this by working out the total number of enteries, as it appears to be in order with no misssing dates. 
+// 1 - This calculates the total number of enteries/months. 
+// (The total number of months is = to the number of values in the array)
 var financeLength = finances.length
-console.log(`Total Months:${financeLength}`)
 
 
-// Net total. Do this by accessing the second item inside the nested array, create a loop that will add the next number to the current calculation
 
-let sum = 0;
+// ---------------- CALCULATION 2 ------------------------
+
+// 2 - This calculate the total sum of values within the array.
+// (To begin with, sum = 0. For every iteration of the loop, find the current value of finances[i][0] and add it the value of sum.
+// Repeat until i is = the length of finances array.) 
+let sumTotal = 0;
 
 for ( var i=0; i < finances.length; i++) {
-    sum += finances[i][1];
+    sumTotal += finances[i][1];
 
 }
-console.log(`Total: ${sum}`)
 
 
-// find the finances array
-// once found, find the second item for each item inside the nested array
-// collect/store this number
-// and sum it to the next number 
-// keep going until the end of the loop 
+
+// ---------------- CALCULATION 3 ------------------------
 
 
-// Average of changes. Create a new array that holds the changes from month to month. 
-
-var i = 0 // Starting value of 0 
-var j = 1 // Starting value of 1
-var differences = []
+// 3 - This calculate the average change in profit/losses, in two parts. 
+// FIRSTLY - Calculate the change for each month, by subtracting the current month by the previous month
+// Then push/add the value to the new array, named changes
 
 
-//Note: both i and j need to be less than the finances.length, otherwise, an error is thrown. 
-//And the program tries to code a row that does not exsist at the end of the program. = "finances["the end of the list" + 1][1]"" is not definded)
-while (i < finances.length && j < finances.length) {
-    
-    //Create an addional column in the finance array
-    //And calculate the difference by second row - the first row. 
-    //And repeat for as long as the value for i and j is less than the length of the list.
-    differences.push(finances[j][2] = (finances[j][1]) - (finances[i][1]));
-    i++;
-    j++;
+var previousMonth = 0 // A counter starting at 0 which is asigned to the first month in the list 
+var currentMonth = 1 // A counter starting at 1 which is asigned to the second month in the list 
+var changes = [] // An array which will store the value for each change. 
+
+
+
+// While the value of previousMonth and the value for currentMonth is less than the length of finance array, repeat this loop.
+while (previousMonth < finances.length && currentMonth < finances.length) {
+
+    //SUBTRACT finance[currentMonth][column index 1] from finance[previousMonth][column index 1] to calculate the difference.
+    // list the value of change in finance[column index 2] and push/add the value to the new array named changes.
+    changes.push(finances[currentMonth][2] = (finances[currentMonth][1]) - (finances[previousMonth][1]));
+    previousMonth++;
+    currentMonth++;
 }
 
-console.table(finances)
-//console.table(differences)
 
+// SECONDLY - Divide the value of changes by the total number of enteries. 
 
+var sumOfChanges = 0
 
-// Add all values togther and divid by total. To get average. 
-
-// Initialise the array, to hold the sum of the 'difference' array.
-var sumDifference = 0
-
-//This loop will calculate the total value from the differences array.
-// For the same num of differences, get the value of differences, and add it to the value to sumDifference, and repeat
-for (var value of differences) {
-    var sumDifference = (sumDifference += value)
+// For each item inside changes, add the value of each item to sumOfChanges to add all items together.
+for (var value of changes) {
+    var sumOfChanges = (sumOfChanges += value)
 }
 
-//This calculates the average, by dividing the length by the sum of the values.
-var average = sumDifference / differences.length;
-
+//Then calculate the average. Total sum divided by the number of enteries. 
+var average = sumOfChanges / changes.length;
 //This display the average, rounded to 3 decimals. 
-console.log(`The average = ${average.toFixed(3)}`)
-
-
-// //Greatest increase in profit. Use a sort method to find highest number
-
-// var greatestProfit = 0
-
-// for (let arrayIndex = 0; arrayIndex < differences.length; arrayIndex++) {
-//     if (differences[arrayIndex] > greatestProfit) {
-//         greatestProfit = differences[arrayIndex]
-//     }   
-// }
-
-// console.log(`The greatest profit is: ${greatestProfit}`)
 
 
 
+// ---------------- CALCULATION 4 ------------------------
 
 
-//Greatest increase in profit. Use a sort method to find highest number
+// 4 - This finds the month and the value which made the greatest increase in profit (from the changes column)
 
 var greatestProfit = 0
-var withDate = []
+var profitDate = []
 
+
+// Complete this loop for the length of the arrange. 
 for (let arrayIndex = 1; arrayIndex < finances.length; arrayIndex++) {
 
+    // take the first array and if it is greater than greatestProfit. Update greatestProfit to equal the array in the loop.
     if (finances[arrayIndex][2] > greatestProfit) {
         greatestProfit = finances[arrayIndex][2]
-        withDate = (`${finances[arrayIndex][0]} ${finances[arrayIndex][1]}`)
+        // Next, find the corresponding month to the greatestProfit value.  
+        profitDate = (`Index Num: ${arrayIndex} : ${finances[arrayIndex][0]} ${finances[arrayIndex][1]}`)
     }   
  
 }
 
-console.log(`The greatest profit is: ${greatestProfit}`)
-console.log(`The date: ${withDate}`)
+
+// ---------------- CALCULATION 5 ------------------------
+
+
+// 5 - Find the month and the value which made the greatest loss. (from the changes column)
+
+var greatestLoss = 0
+var lossDate = []
+
+for (let arrayIndex = 1; arrayIndex < finances.length; arrayIndex++) {
+
+    if (finances[arrayIndex][2] < greatestLoss) {
+        greatestLoss = finances[arrayIndex][2]
+        lossDate = (`Index Num: ${arrayIndex} : ${finances[arrayIndex][0]} ${finances[arrayIndex][2]}`)
+    }   
+ 
+}
 
 
 
-//Greatet decrease in losses. Use a sort method to find lowest number
+// ---------------- SUMMARY ------------------------
+
+
+console.log("Financial Analysis")
+console.log("-----------------------------")
+console.log(`(1): Total Months:${financeLength}`)
+console.log(`(2): Total: ${sumTotal}`)
+console.log(`(3): The average = ${average.toFixed(3)}`)
+console.log(`(4): The greatest profit Date / Value: ${profitDate}`)
+console.log(`(5): The least profit Date / Value:  ${lossDate}`)
+
+
+console.log("\nData")
+console.table(finances)
+
+
