@@ -124,21 +124,26 @@ console.log(`Total: ${sum}`)
 
 var i = 0 // Starting value of 0 
 var j = 1 // Starting value of 1
+var differences = []
 
+
+//Note: both i and j need to be less than the finances.length, otherwise, an error is thrown. 
+//And the program tries to code a row that does not exsist at the end of the program. = "finances["the end of the list" + 1][1]"" is not definded)
 while (i < finances.length && j < finances.length) {
     
     //Create an addional column in the finance array
     //And calculate the difference by second row - the first row. 
     //And repeat for as long as the value for i and j is less than the length of the list.
-    finances[j][2] = (finances[j][1]) - (finances[i][1]);
+    differences.push(finances[j][2] = (finances[j][1]) - (finances[i][1]));
     i++;
     j++;
 }
 
 console.table(finances)
+console.table(differences)
 
 
-// Create a calculation that finds the differnce between two consective months, and store the value. 
+
 // Add all values togther and divid by total. To get average. 
 
 
@@ -146,6 +151,3 @@ console.table(finances)
 
 
 //Greatet decrease in losses. Use a sort method to find lowest number
-
-
-
