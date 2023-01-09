@@ -1,4 +1,5 @@
 var finances = [
+
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
 ['Mar-2010', 322013],
@@ -107,13 +108,9 @@ let sum = 0;
 
 for ( var i=0; i < finances.length; i++) {
     sum += finances[i][1];
+
 }
 console.log(`Total: ${sum}`)
-
-
-
-
-
 
 
 // find the finances array
@@ -124,6 +121,23 @@ console.log(`Total: ${sum}`)
 
 
 // Average of changes. Create a new array that holds the changes from month to month. 
+
+var i = 0 // Starting value of 0 
+var j = 1 // Starting value of 1
+
+while (i < finances.length && j < finances.length) {
+    
+    //Create an addional column in the finance array
+    //And calculate the difference by second row - the first row. 
+    //And repeat for as long as the value for i and j is less than the length of the list.
+    finances[j][2] = (finances[j][1]) - (finances[i][1]);
+    i++;
+    j++;
+}
+
+console.table(finances)
+
+
 // Create a calculation that finds the differnce between two consective months, and store the value. 
 // Add all values togther and divid by total. To get average. 
 
