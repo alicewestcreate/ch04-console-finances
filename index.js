@@ -1,5 +1,4 @@
 var finances = [
-
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
 ['Mar-2010', 322013],
@@ -145,6 +144,21 @@ console.table(differences)
 
 
 // Add all values togther and divid by total. To get average. 
+
+// Initialise the array, to hold the sum of the 'difference' array.
+var sumDifference = 0
+
+//This loop will calculate the total value from the differences array.
+// For the same num of differences, get the value of differences, and add it to the value to sumDifference, and repeat
+for (var value of differences) {
+    var sumDifference = (sumDifference += value)
+}
+
+//This calculates the average, by dividing the length by the sum of the values.
+var average = sumDifference / differences.length;
+
+//This display the average, rounded to 3 decimals. 
+console.log(`The average = ${average.toFixed(3)}`)
 
 
 //Greatest increase in profit. Use a sort method to find highest number
