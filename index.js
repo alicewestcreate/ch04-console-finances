@@ -163,5 +163,15 @@ console.log(`The average = ${average.toFixed(3)}`)
 
 //Greatest increase in profit. Use a sort method to find highest number
 
+var greatestProfit = 0
+
+for (let arrayIndex = 0; arrayIndex < differences.length; arrayIndex++) {
+    if (differences[arrayIndex] > greatestProfit) {
+        greatestProfit = differences[arrayIndex]
+    }   
+}
+
+console.log(`The greatest profit is: ${greatestProfit}`)
+
 
 //Greatet decrease in losses. Use a sort method to find lowest number
