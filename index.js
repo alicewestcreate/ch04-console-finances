@@ -1,4 +1,14 @@
 var finances = [
+
+// ['Jan-2010', 21],
+// ['Feb-2010', 13],
+// ['Mar-2010', 8],
+// ['Jan-2010', 5],
+// ['Feb-2010', 3],
+// ['Mar-2010', 2],
+// ['Mar-2010', 1],
+
+
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
 ['Mar-2010', 322013],
@@ -139,7 +149,7 @@ while (i < finances.length && j < finances.length) {
 }
 
 console.table(finances)
-console.table(differences)
+//console.table(differences)
 
 
 
@@ -161,17 +171,39 @@ var average = sumDifference / differences.length;
 console.log(`The average = ${average.toFixed(3)}`)
 
 
+// //Greatest increase in profit. Use a sort method to find highest number
+
+// var greatestProfit = 0
+
+// for (let arrayIndex = 0; arrayIndex < differences.length; arrayIndex++) {
+//     if (differences[arrayIndex] > greatestProfit) {
+//         greatestProfit = differences[arrayIndex]
+//     }   
+// }
+
+// console.log(`The greatest profit is: ${greatestProfit}`)
+
+
+
+
+
 //Greatest increase in profit. Use a sort method to find highest number
 
 var greatestProfit = 0
+var withDate = []
 
-for (let arrayIndex = 0; arrayIndex < differences.length; arrayIndex++) {
-    if (differences[arrayIndex] > greatestProfit) {
-        greatestProfit = differences[arrayIndex]
+for (let arrayIndex = 1; arrayIndex < finances.length; arrayIndex++) {
+
+    if (finances[arrayIndex][2] > greatestProfit) {
+        greatestProfit = finances[arrayIndex][2]
+        withDate = (`${finances[arrayIndex][0]} ${finances[arrayIndex][1]}`)
     }   
+ 
 }
 
 console.log(`The greatest profit is: ${greatestProfit}`)
+console.log(`The date: ${withDate}`)
+
 
 
 //Greatet decrease in losses. Use a sort method to find lowest number
